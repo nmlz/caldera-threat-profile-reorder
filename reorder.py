@@ -13,7 +13,7 @@ with open(file, 'r') as file:
 
 for ability_id in abilities_data['atomic_ordering']:
     for folder in ordered_folders:
-        ability_file = os.path.join(abilities_dir, folder, f"{ability_id}.yaml")
+        ability_file = os.path.join(abilities_dir, folder, f"{ability_id}.yml")
         if os.path.exists(ability_file):
             tactic_abilities[folder].append(ability_id)
             break
