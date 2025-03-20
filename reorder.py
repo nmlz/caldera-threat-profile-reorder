@@ -18,4 +18,12 @@ for ability_id in abilities_data['atomic_ordering']:
             tactic_abilities[folder].append(ability_id)
             break
 
-print(tactic_abilities)
+with open(output_file, 'w') as newfile:
+    newfile.writelines("---\n")
+    newfile.writelines(f"id: {output_file}\n")
+    newfile.writelines(f"description: Custom adversary threat profile created using AtomicThreatProfile and ordered with reorder.py\n")
+    newfile.writelines("atomic_ordering:\n")
+    for technique in tactic_abilities:
+        for procedure in tactic_abilities[technique]: 
+            newfile.writelines(f"- {procedure}\n")
+newfile.close()
